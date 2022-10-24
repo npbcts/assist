@@ -1,0 +1,19 @@
+import zipfile
+from typing import List
+import logging
+
+
+def zip_files(files: List[str], zip_name: str) -> None:
+    """
+    zip_files _summary_
+
+    Args:
+        files (List[str]): 包含文件名(含路径)的列表
+        zip_name (str): 打包文件名(含路径)
+    """    
+    zip = zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED)
+    for file in files:
+        logging.info('compressing', file)
+        zip.write(file)
+    zip.close()
+    logging.info('compressing finished')
