@@ -17,7 +17,7 @@ def mk_folder(folder: str, rebuild=False) -> None:
             shutil.rmtree(folder)
         else:
             logging.info(f'folder {folder} exist, can`t creat new!')
-            logging.info(f'set "rebuild == True” for del and creat new folder')
+            logging.info(f'you may set "rebuild == True" for del and creat new folder')
             return
     logging.info(f'folder {folder} create already!')
     os.mkdir(folder)
