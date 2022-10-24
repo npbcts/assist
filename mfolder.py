@@ -1,3 +1,5 @@
+#!/usr/bin python3.8
+# coding: utf-8
 import os
 import shutil
 import logging
@@ -40,7 +42,7 @@ def files_2_folder(files: List[str], source_folder: str, aim_folder: str) -> Non
     """
     files_2_folder: 将source_folder中的文件复制到aim_folder文件夹。
     Args:
-        files (List[str]): 脚本文件名的列表
+        files (List[str]): 脚本文件名的列表,不包含路径
         source_folder(str): 源文件夹, path like类型, 即文件夹路径
         aim_folder(str): 目标文件夹, path like类型, 即文件夹路径
     """
@@ -64,11 +66,11 @@ def files_2_folder(files: List[str], source_folder: str, aim_folder: str) -> Non
 
 def del_folder_files(files: List[str], aim_folder) -> None:
     """
-    del_folder_files: 删除目标文件夹中无用文件。
+    del_folder_files: 删除目标文件夹中文件。
 
     Args:
+    files (List[str]): 文件名的列表,只有文件名，不包含路径
     aim_folder: 待删除文件所在的文件夹
-        script_files (List[str]): 文件名的列表
     """
     for file in files:
         file_path = os.path.join(aim_folder, file)
