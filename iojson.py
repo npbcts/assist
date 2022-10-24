@@ -9,7 +9,7 @@ import logging
 from typing import Dict, Any
 
 
-def save_json(data_dic: Dict[Any, Any], filename: str, encoding='utf-8') -> None:
+def save_json(data_dic: Dict[Any, Any], filename: str, mode='w', encoding='utf-8') -> None:
     #
     """
     save_json 将字典格式数据作为文件保存至程序文件夹
@@ -19,10 +19,7 @@ def save_json(data_dic: Dict[Any, Any], filename: str, encoding='utf-8') -> None
         filename (str): 保存json文件
         encoding (str, optional): 保存coding. Defaults to 'utf-8'.
     """    
-    if not os.path.exists(filename):
-        logging.info(f'have no find {filename}, please check path!')
-        return
-    with open(filename, 'w', encoding=encoding) as f:
+    with open(filename, mode, encoding=encoding) as f:
         json.dump(data_dic, f, ensure_ascii=False)
 
 

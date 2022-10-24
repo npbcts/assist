@@ -9,9 +9,6 @@ import logging
 
 
 def save_pickle(obj, filename):
-    if not os.path.exists(filename):
-        logging.info(f'have no find {filename}, please check path!')
-        return
     with open(filename, 'wb') as f:
         pickle.dump(obj, f)
 
