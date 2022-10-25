@@ -1,8 +1,6 @@
 #!/usr/local/bin/python3.8
 # -*- coding: utf-8 -*-
 # @Time   : 2022/10/13 17: 29
-# @Author  :Jason
-# @Site   : www.auditor.ren
 # @File   : 用于测量函数运行时间的装饰器
 # @Software  : Vscode
 import time

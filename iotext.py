@@ -1,8 +1,6 @@
 #!/usr/local/bin/python3.8
 # -*- coding: utf-8 -*-
 # @Time   : 2022/10/13 16: 29
-# @Author  :Jason
-# @Site   : www.auditor.ren
 # @File   : 用于读写文件数据函数集合
 # @Software  : Vscode
 import os

@@ -1,3 +1,9 @@
+#!/usr/local/bin/python3.8
+# -*- coding: utf-8 -*-
+# @Time   : 2022/10/13 16: 29
+# @File   : 终止已开启的多线程中的某一个线程
+# @Software  : Vscode
+
 import threading
 import logging
 import ctypes

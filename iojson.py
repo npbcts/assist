@@ -18,7 +18,7 @@ def save_json(data_dic: Dict[Any, Any], filename: str, mode='w', encoding='utf-8
         data_dic (Dict[Any, Any]): python 字典格式数据
         filename (str): 保存json文件
         encoding (str, optional): 保存coding. Defaults to 'utf-8'.
-    """    
+    """
     with open(filename, mode, encoding=encoding) as f:
         json.dump(data_dic, f, ensure_ascii=False)
 
