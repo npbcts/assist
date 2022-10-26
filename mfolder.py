@@ -78,3 +78,15 @@ def del_folder_files(files: List[str], aim_folder) -> None:
             os.remove(file_path)
         else:
             logging.info(f"file {file_path} does not exist")
+
+def copy_folder(source_path, target_path):
+    if not os.path.exists(target_path):
+        # 如果目标路径不存在原文件夹的话就创建
+        os.makedirs(target_path)
+
+    if os.path.exists(source_path):
+        # 如果目标路径存在原文件夹的话就先删除
+        shutil.rmtree(target_path)
+
+    shutil.copytree(source_path, target_path)
+    logging.info(f'copy folder {source_path} -> {target_path}')
