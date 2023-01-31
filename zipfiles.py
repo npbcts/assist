@@ -17,7 +17,7 @@ def zip_files(files: List[str], zip_name: str) -> None:
         if not os.path.exists(file):
             logging.info(f'have no find {file}, please check path!')
             continue
-        logging.info('compressing', file)
+        logging.info(f'compressing: {file}')
         zip.write(file)
     zip.close()
     logging.info('compressing finished')
