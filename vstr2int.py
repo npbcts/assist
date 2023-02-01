@@ -15,7 +15,7 @@ def version_str2int(the_version_str: str) -> Union[int, None]:
         the_version_str (str): 表示版本号的字符串, e.g: '22.10.4.0'
 
     Returns:
-        int, None: 返回数字化的版本号221040 或者 None
+        int, None: 返回数字化的版本号221004 或者 None.需要保持日期的6位数字。
     """
     if not the_version_str or not isinstance(the_version_str, str):
         logging.info('please input correct version_str')
