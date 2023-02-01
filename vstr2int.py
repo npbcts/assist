@@ -20,4 +20,4 @@ def version_str2int(the_version_str: str) -> Union[int, None]:
     if not the_version_str or not isinstance(the_version_str, str):
         logging.info('please input correct version_str')
         return None
-    return int(''.join(the_version_str.split('.')))
+    return int(''.join(the_version_str.split('.')[:-1]))
