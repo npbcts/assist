@@ -11,6 +11,10 @@
 
 `git submodule add https://github.com/npbcts/assist.git`
 
+私有模块使用以下命令:
+
+`git submodule add git@github.com:npbcts/installer.git`
+
 默认情况下，子模块会将子项目放到一个与仓库同名的目录中,即assist文件夹中。
 
 虽然 assist 是工作目录中的一个子目录，但 Git 还是会将它视作一个子模块。当你不在那个目录中时，Git 并不会跟踪它的内容， 而是将它看作子模块仓库中的某个具体的提交。
