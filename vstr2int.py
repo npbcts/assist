@@ -12,7 +12,7 @@ def version_str2int(the_version_str: str) -> Union[int, None]:
     version_str2int 字符串类型版本号转化为数字型
 
     Args:
-        the_version_str (str): 表示版本号的字符串, e.g: '22.10.4.0'
+        the_version_str (str): 表示版本号的字符串, e.g: '22.10.04.0'
 
     Returns:
         int, None: 返回数字化的版本号221004 或者 None.需要保持日期的6位数字。
