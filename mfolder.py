@@ -13,15 +13,14 @@ def mk_folder(folder: str, rebuild=False) -> None:
         folder (str): 需要创建的文件夹名称
     """
     if os.path.exists(folder):
-        if rebuild == True:
+        if rebuild is True:
             shutil.rmtree(folder)
         else:
             logging.info(f'folder {folder} exist, can`t creat new!')
-            logging.info(f'you may set "rebuild == True" for del and creat new folder')
+            logging.info('you may set "rebuild is True" for del and creat new folder')
             return
     logging.info(f'folder {folder} create already!')
     os.mkdir(folder)
-    
 
 
 def rm_folder(folder: str) -> None:
@@ -30,7 +29,7 @@ def rm_folder(folder: str) -> None:
 
     Args:
         folder (str): 文件夹路径
-    """    
+    """
     if os.path.exists(folder):
         shutil.rmtree(folder)
         logging.info(f'folder: {folder} deleted already!')
@@ -79,6 +78,7 @@ def del_folder_files(files: List[str], aim_folder) -> None:
         else:
             logging.info(f"file {file_path} does not exist")
 
+
 def copy_folder(source_path, target_path):
     if not os.path.exists(target_path):
         # 如果目标路径不存在原文件夹的话就创建
@@ -90,3 +90,18 @@ def copy_folder(source_path, target_path):
 
     shutil.copytree(source_path, target_path)
     logging.info(f'copy folder {source_path} -> {target_path}')
+
+
+def del_folder_file(folder: str, file_type: str):
+    """
+    del_folder_file 删除文件夹中某一类型的文件
+
+    Args:
+        folder (str): 目标文件夹全路径
+        file_type (str): 文件类型(实质为能区别文件夹中其他文件的文件名结尾字符), e.g: .pdf
+    """
+    for file_name in os.listdir(folder):
+        if file_name.endswith(file_type):
+            del_file = os.path.join(folder, file_name)
+            os.remove(del_file)
+            logging.info(f'del file {del_file}')
