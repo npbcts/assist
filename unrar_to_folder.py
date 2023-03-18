@@ -26,6 +26,10 @@ file.extractall('/tmp')
 复制
 备注：rarfile已经通过pip3 install rarfile安装，但是unrar用pip3虽然提示成功但是有问题，所以手动安装下unrar包。
 
+0. 安装 unrar
+
+pip install unrar
+
 1. 安装依赖包
 
 `yum install gcc gcc-c++`
