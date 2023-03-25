@@ -1,7 +1,7 @@
 from os import path
 import re
 from datetime import datetime
-from iojson import read_json
+from .iojson import read_json
 this_path = path.abspath(path.dirname(__file__))
 
 
