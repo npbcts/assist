@@ -76,9 +76,11 @@ push主模块时，检查子模块是否推送的命令:
 
 #### 从当前项目移除 submodule
 
+```python
 git submodule deinit -f <submodule_path>  
 rm -rf .git/modules/<submodule_path>  
 git rm -f <submodule_path>  
+```
 
 #### 总结
 
@@ -92,4 +94,4 @@ git rm -f <submodule_path>
 
 5. vscode的git管理工具，针对不同子模块的git单独管理
 
-6. 在 repo Test 作为 submodule 被 superproject 管理后:在 superproject 下可以通过 git submodule *** 命令来管理其下的所有子仓库, 使其与远程库保持同步或推送到远程库.
+6. 在 `repo Test` 作为 `submodule` 被 `superproject` 管理后:在 `superproject` 下可以通过 `git submodule ***` 命令来管理其下的所有子仓库, 使其与远程库保持同步或推送到远程库.
