@@ -10,7 +10,6 @@ from typing import Dict, Any
 
 
 def save_json(data_dic: Dict[Any, Any], filename: str, mode='w', encoding='utf-8') -> None:
-    #
     """
     save_json 将字典格式数据作为文件保存至程序文件夹
 

@@ -1,5 +1,6 @@
 import requests
-
+from typing import Union
+from logging import Logger
 
 HEADER = {
     'User-Agent':
@@ -12,7 +13,7 @@ HEADER = {
     }
 
 
-def down_from_url(file_url: str, down_path: str) -> None:
+def down_from_url(file_url: str, down_path: str, logger: Union[Logger, None] = None) -> None:
     """
     down_from_url 下载网页链接中的文件
 
@@ -21,9 +22,11 @@ def down_from_url(file_url: str, down_path: str) -> None:
             'https://www.swsresearch.com/swindex/pdf/StockClassifyUse_stock.xls'
             'https://www.swsresearch.com/swindex/pdf/SwClass2021/SwClass.rar'
         down_path (str): 包含文件全路径名称(包含路径,文件名及扩展名)
+        logger (Union[Logger, None]): 用于记录日志
     """
     r = requests.get(file_url, headers=HEADER)
     if r.status_code == requests.codes.ok:
         with open(down_path, 'wb') as f:
             f.write(r.content)
-    print(f'{down_path} download compelete!')
+    if logger is not None:
+        logger.info(f'{down_path} download compelete!')

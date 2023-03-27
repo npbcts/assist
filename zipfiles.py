@@ -11,7 +11,7 @@ def zip_files(files: List[str], zip_name: str) -> None:
     Args:
         files (List[str]): 包含文件名(含路径)的列表
         zip_name (str): 打包文件名(含路径)
-    """    
+    """
     zip = zipfile.ZipFile(zip_name, 'w', zipfile.ZIP_DEFLATED)
     for file in files:
         if not os.path.exists(file):
