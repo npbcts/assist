@@ -34,7 +34,7 @@ def get_logger(filename: str, log_save_folder: str) -> logging.Logger:
     logger = logging.getLogger("logger")
 
     handler1 = logging.StreamHandler()
-    handler2 = logging.FileHandler(filename=log_file_path)
+    handler2 = logging.FileHandler(filename=log_file_path, encoding='utf-8')
 
     logger.setLevel(logging.DEBUG)
     handler1.setLevel(logging.WARNING)
