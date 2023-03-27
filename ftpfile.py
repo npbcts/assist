@@ -67,7 +67,8 @@ class FtpDownUpFile():
             默认本地文件和ftp中的文件名称相同
 
         Args:
-            remotepath (str): 服务器(上传目标)文件夹。注意服务器为linux末尾加斜杠'/',路径拼接成linux路径;反之既然。
+            remotepath (str): 服务器(上传目标)文件夹。
+                注意服务器为linux末尾加斜杠'/',路径拼接成linux路径; 反之既然。
             localpath (str): 本地文件夹, 包含要上传的文件
             filename (str): 要上传的文件名
 

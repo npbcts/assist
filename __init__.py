@@ -8,7 +8,7 @@ from assist.iopickle import read_pickle, save_pickle
 from assist.iotext import read_text, save_text
 from assist.mylogger import get_logger
 from assist.remote_script import RemoteScript
-from time_func import time_func
+from assist.time_func import time_func
 
 
 __all__ = [

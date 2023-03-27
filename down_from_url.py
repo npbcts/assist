@@ -1,5 +1,6 @@
 import requests
-from typing import Union
+import os
+from typing import Union, Tuple
 from logging import Logger
 
 HEADER = {
@@ -13,7 +14,7 @@ HEADER = {
     }
 
 
-def down_from_url(file_url: str, down_path: str, logger: Union[Logger, None] = None) -> None:
+def down_from_url(file_url: str, down_path: str, logger: Union[Logger, None] = None) -> Tuple[bool, str]:
     """
     down_from_url 下载网页链接中的文件
 
@@ -22,11 +23,25 @@ def down_from_url(file_url: str, down_path: str, logger: Union[Logger, None] = N
             'https://www.swsresearch.com/swindex/pdf/StockClassifyUse_stock.xls'
             'https://www.swsresearch.com/swindex/pdf/SwClass2021/SwClass.rar'
         down_path (str): 包含文件全路径名称(包含路径,文件名及扩展名)
-        logger (Union[Logger, None]): 用于记录日志
+        logger (Union[Logger, None]): 用于记录日志.可选。
+
+    Returns:
+        bool: 是否保存成功的布尔值
     """
     r = requests.get(file_url, headers=HEADER)
+    file_size = 0
     if r.status_code == requests.codes.ok:
+        file_size = int(r.headers.get('Content-Length'))
         with open(down_path, 'wb') as f:
             f.write(r.content)
+    if os.path.exists(down_path) and os.path.getsize(down_path) == file_size:
+        # 根据文件大小(例如0k文件)判断下载是否成功。
+        save_result = True
+        save_result_str = 'Success'
+    else:
+        save_result = False
+        save_result_str = 'SaveFaild'
     if logger is not None:
-        logger.info(f'{down_path} download compelete!')
+        logger.info(f'{down_path} download compelete, {save_result_str}')
+
+    return save_result, save_result_str
