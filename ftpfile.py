@@ -88,7 +88,7 @@ class FtpDownUpFile():
 
 
 if __name__ == "__main__":
-    from mylogger import get_logger
+    from assist.mylogger import get_logger
     logger = get_logger('ftpfile', '.')
     dellftp = FtpDownUpFile("192.168.2.141", "chloe", "20200415", logger)
     localpath = './'
