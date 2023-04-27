@@ -31,10 +31,10 @@ def down_from_url(file_url: str, down_path: str, logger: Union[Logger, None] = N
     r = requests.get(file_url, headers=HEADER)
     file_size = 0
     if r.status_code == requests.codes.ok:
-        file_size = int(r.headers.get('Content-Length'))
+        # file_size = int(r.headers.get('Content-Length'))  #  返回不提供此字段
         with open(down_path, 'wb') as f:
             f.write(r.content)
-    if os.path.exists(down_path) and os.path.getsize(down_path) == file_size:
+    if os.path.exists(down_path) and os.path.getsize(down_path) > 500000:
         # 根据文件大小(例如0k文件)判断下载是否成功。
         save_result = True
         save_result_str = 'Success'
