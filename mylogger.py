@@ -6,7 +6,7 @@ import logging.handlers
 __all__ = ["get_logger"]
 
 
-def get_logger(filename: str, log_save_folder: str) -> logging.Logger:
+def get_logger(filename: str, log_save_folder: str, logger_level=logging.INFO) -> logging.Logger:
     """
     get_logger 输入文件名和日志记录文件路径(在此路径下建立logs文件夹),获取一个日志记录器\n
         日志文件全部保存为: log_save_folder/logs/xxx.log
@@ -32,6 +32,7 @@ def get_logger(filename: str, log_save_folder: str) -> logging.Logger:
 
     log_file_path = os.path.join(log_folder, f"{filename}.log")
     logger = logging.getLogger("logger")
+    logger.setLevel(logger_level)
 
     handler1 = logging.StreamHandler()
     handler2 = logging.FileHandler(filename=log_file_path, encoding='utf-8')
